@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SidenavServiceService } from 'src/app/sidenav-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private Auth: AuthService, private router: Router) { }
+  constructor(private fb:FormBuilder, private Auth: AuthService, private router: Router, private sidenav: SidenavServiceService) { }
 
   ngOnInit(): void {
+    this.sidenav.close();
     this.loginForm = this.fb.group({
       username: '',
       password: '',

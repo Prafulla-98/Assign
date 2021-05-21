@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>User</h2>
+<mat-dialog-content>
+    <div>
+        {{ data.id }}
+    </div>
+    <div>
+        {{ data.name }}
+    </div>
+    <div>
+        {{ data.username }}
+    </div>
+    <div>
+        {{ data.email }}
+    </div>
+    <div>
+        {{ data.address.street }}
+    </div>
+    <div>
+        {{ data.address.suite }}
+    </div>
+    <div>
+        {{ data.address.city }}
+    </div>
+    <div>
+        {{ data.address.zipcode }}
+    </div>
+    <div>
+        {{ data.address.geo.lat }}
+    </div>
+    <div>
+        {{ data.address.geo.lng }}
+    </div>
+    <div>
+        {{ data.phone }}
+    </div>
+    <div>
+        {{ data.website }}
+    </div>
+    <div>
+        {{ data.company.name }}
+    </div>
+    <div>
+        {{ data.company.catchPhrase }}
+    </div>
+    <div>
+        {{ data.company.bs }}
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Okay</button>
+</mat-dialog-actions>

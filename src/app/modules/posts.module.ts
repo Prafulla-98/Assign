@@ -5,6 +5,7 @@ import { PostsComponent } from '../components/posts/posts/posts.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthGuard } from '../auth.guard';
 @NgModule({
   declarations: [
     PostComponent,
@@ -19,12 +20,15 @@ import { MatButtonModule } from '@angular/material/button';
       {
         path: 'posts',
         component: PostsComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'posts/:id',
         component: PostComponent,
+        canActivate: [AuthGuard],
       }
     ])
   ],
+  providers: [AuthGuard],
 })
 export class PostsModule { }

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SidenavServiceService } from 'src/app/sidenav-service.service';
+import { CitiesService } from 'src/app/cities.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UserDialogComponent } from 'src/app/components/user-dialog/user-dialog.component';
+import { User } from '../main/models/User';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,7 +18,9 @@ export class EditUserComponent implements OnInit {
   user: any;
   isEditMode: boolean = true;
   addUser: any;
-  constructor(private fb:FormBuilder, private router: Router) {
+  citiesArr: string[];
+
+  constructor(private fb:FormBuilder, private router: Router, private sidenav: SidenavServiceService, private cities: CitiesService, private dialog: MatDialog) {
     const user = this.router.getCurrentNavigation().extras.state.userData;
     const add=this.router.getCurrentNavigation().extras.state.addUser;
     this.user = user;
@@ -21,7 +28,8 @@ export class EditUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.sidenav.open();
+    this.citiesArr = this.cities.cities;
     
     if(this.isEditMode){
       this.loginForm = this.fb.group({
@@ -64,22 +72,31 @@ export class EditUserComponent implements OnInit {
   }
 
   saveUser() {
-  window.alert(this.loginForm.get('id').value + '\n'
-    + this.loginForm.get('name').value + '\n'
-    + this.loginForm.get('username').value + '\n'
-    + this.loginForm.get('email').value + '\n'
-    + this.loginForm.get('street').value + '\n'
-    + this.loginForm.get('suite').value + '\n'
-    + this.loginForm.get('city').value + '\n'
-    + this.loginForm.get('zipcode').value + '\n'
-    + this.loginForm.get('lat').value + '\n'
-    + this.loginForm.get('lng').value + '\n'
-    + this.loginForm.get('phone').value + '\n'
-    + this.loginForm.get('website').value + '\n'
-    + this.loginForm.get('companyName').value + '\n'
-    + this.loginForm.get('catchPhrase').value + '\n'
-    + this.loginForm.get('bs').value + '\n');
-    this.router.navigate(["home"]);
+    const user : User = {
+        id: this.loginForm.get('id').value,
+        name: this.loginForm.get('name').value,
+        username:this.loginForm.get('username').value,
+        email: this.loginForm.get('email').value,
+        phone: this.loginForm.get('phone').value,
+        address: {
+          street: this.loginForm.get('street').value,
+          suite: this.loginForm.get('suite').value,
+          city: this.loginForm.get('city').value,
+          zipcode: this.loginForm.get('zipcode').value,
+          geo: {
+            lat: this.loginForm.get('lat').value,
+            lng: this.loginForm.get('lng').value,
+          }
+        },
+        website: this.loginForm.get('website').value,
+        company: {
+          name: this.loginForm.get('companyName').value,
+          catchPhrase: this.loginForm.get('catchPhrase').value,
+          bs: this.loginForm.get('bs').value, 
+        },
+    };
+    
+    this.dialog.open(UserDialogComponent, { data: user });
   }
  
 

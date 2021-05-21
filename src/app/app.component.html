@@ -1,2 +1,17 @@
 
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side">
+        <span>Prafulla</span>
+
+        <div class="spacer"></div>
+        <a mat-button routerLink="../main" routerLinkActive="active">All Users</a>
+        <div class="spacer"></div>
+        <a mat-button routerLink="../posts" routerLinkActive="active">Posts</a>
+        <div class="spacer"></div>
+        <a mat-button routerLink="../albums" routerLinkActive="active">Albums</a>
+        <div class="spacer"></div>
+        <a mat-button routerLink="../newUser" routerLinkActive="active">Add New User</a>
+    </mat-sidenav>
+    <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>
+

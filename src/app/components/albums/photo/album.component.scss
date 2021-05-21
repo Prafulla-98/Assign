@@ -1,0 +1,10 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px 4px;
+}
+
+.image {
+    flex: 25%;
+    padding: 4px 4px;
+  }

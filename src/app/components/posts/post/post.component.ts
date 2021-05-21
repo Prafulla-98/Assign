@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SidenavServiceService } from 'src/app/sidenav-service.service';
 import { Post } from '../model/Post';
 
 @Component({
@@ -11,11 +12,12 @@ export class PostComponent implements OnInit {
 
   post: Post;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private sidenav: SidenavServiceService) { 
     this.post = this.router.getCurrentNavigation().extras.state.data;
   }
 
   ngOnInit(): void {
+    this.sidenav.open()
     console.log(this.post);
   }
 

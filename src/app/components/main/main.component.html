@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
 <div>
+    <h1>All Users</h1>
     <table class="users">
         <tr class="headers">
             <th>Id</th>
@@ -17,6 +17,7 @@
             <th>Company Name</th>
             <th>Catch Phrase</th>
             <th>BS</th>
+            <th>Edit User</th>
         </tr>
         <tr (edit)="edit($event)" app-user *ngFor="let user of (users$ | async)" [user]="user">
         </tr>

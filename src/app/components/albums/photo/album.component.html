@@ -1,9 +1,9 @@
 <div class="photos">
     <h1>Photos for this Album</h1>
 
-    <ul>
-        <li *ngFor="let photo of photos">
+    <div class="gallery">
+        <div *ngFor="let photo of photos" class="image">
             <img [src]="photo.url">
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>

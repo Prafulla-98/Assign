@@ -6,6 +6,7 @@ import { AlbumComponent } from '../components/albums/photo/album.component';
 import { AlbumResolver } from '../components/albums/resolver/album.resolver';
 import { AlbumService } from '../components/albums/service/album.service';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthGuard } from '../auth.guard';
 @NgModule({
   declarations: [
     AlbumsComponent,
@@ -18,16 +19,18 @@ import { MatButtonModule } from '@angular/material/button';
       {
         path: 'albums',
         component: AlbumsComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'albums/:id',
         component: AlbumComponent,
+        canActivate: [AuthGuard],
         resolve: {
           photos: AlbumResolver,
         }
       }
     ])
   ],
-  providers: [AlbumResolver, AlbumService],
+  providers: [AlbumResolver, AlbumService, AuthGuard],
 })
 export class AlbumsModule { }

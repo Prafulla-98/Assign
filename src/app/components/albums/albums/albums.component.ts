@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SidenavServiceService } from 'src/app/sidenav-service.service';
 import { Album } from '../model/Album';
 
 @Component({
@@ -14,9 +15,10 @@ export class AlbumsComponent implements OnInit {
   albums$: Observable<Album[]>;
   albums: Album[];
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private sidenav: SidenavServiceService) { }
 
   ngOnInit(): void {
+    this.sidenav.open();
     this.albums$ = this.http.get<Album[]>('https://jsonplaceholder.typicode.com/albums/');
     this.albums$.subscribe(a => {
       this.albums = a as Album[];
