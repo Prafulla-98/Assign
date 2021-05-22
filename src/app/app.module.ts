@@ -28,7 +28,7 @@ import { SidenavServiceService } from './sidenav-service.service';
 import { CitiesService } from './cities.service';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
-import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [

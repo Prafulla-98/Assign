@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CitiesService } from 'src/app/cities.service';
 import { SidenavServiceService } from 'src/app/sidenav-service.service';
+import { UserDialogComponent } from 'src/app/user-dialog/user-dialog.component';
+import { User } from '../main/models/User';
 
 @Component({
   selector: 'app-new-user',
@@ -14,7 +17,7 @@ export class NewUserComponent implements OnInit {
   userForm: FormGroup;
   citiesArr: string[];
 
-  constructor(private fb:FormBuilder, private router: Router, private sidenav: SidenavServiceService, private cities: CitiesService) {
+  constructor(private fb:FormBuilder, private router: Router, private sidenav: SidenavServiceService, private cities: CitiesService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -48,21 +51,31 @@ export class NewUserComponent implements OnInit {
   }
 
   saveUser() {
-    let userStr = this.userForm.get('name').value + '\n'
-    + this.userForm.get('phone').value + '\n'
-    + this.userForm.get('email').value + '\n';
-
-    let i = 0;
-    for (let address of this.userForm.get('addresses')['controls']) {
-      i += 1;
-      userStr += 'Address ' + i + '\n' + address.value.doorNo + '\n'
-      + address.value.street + '\n'
-      + address.value.area + '\n'
-      + address.value.city + '\n'
-      + address.value.pin + '\n';
-    }
-
-    window.alert(userStr);
+    const user : User = {
+      id: '',
+      name: this.userForm.get('name').value,
+      username: '',
+      email: this.userForm.get('email').value,
+      phone: this.userForm.get('phone').value,
+      address: {
+        street: this.userForm.get('addresses')['controls'][0].value.street,
+        suite: this.userForm.get('addresses')['controls'][0].value.area,
+        city: this.userForm.get('addresses')['controls'][0].value.city,
+        zipcode: this.userForm.get('addresses')['controls'][0].value.pin,
+        geo: {
+          lat: '',
+          lng: '',
+        }
+      },
+      website: '',
+      company: {
+        name: '',
+        catchPhrase: '',
+        bs: '', 
+      },
+  };
+  
+  this.dialog.open(UserDialogComponent, { data: user });
   }
 
 }

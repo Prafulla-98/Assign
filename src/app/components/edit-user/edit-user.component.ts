@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SidenavServiceService } from 'src/app/sidenav-service.service';
 import { CitiesService } from 'src/app/cities.service';
 import { MatDialog } from '@angular/material/dialog';
-import { UserDialogComponent } from 'src/app/components/user-dialog/user-dialog.component';
+import { UserDialogComponent } from 'src/app/user-dialog/user-dialog.component';
 import { User } from '../main/models/User';
 
 @Component({
