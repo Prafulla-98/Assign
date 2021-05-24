@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CitiesService } from 'src/app/cities.service';
 import { SidenavServiceService } from 'src/app/sidenav-service.service';
-import { UserDialogComponent } from 'src/app/user-dialog/user-dialog.component';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { User } from '../main/models/User';
 
 @Component({
