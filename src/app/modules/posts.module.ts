@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from '../auth.guard';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     PostComponent,
@@ -16,6 +18,7 @@ import { AuthGuard } from '../auth.guard';
     CommonModule,
     MatCardModule,
     MatButtonModule,
+    MatPaginatorModule,
     RouterModule.forRoot([
       {
         path: 'posts',

@@ -16,7 +16,8 @@ import { CitiesService } from 'src/app/cities.service';
 export class MainComponent implements OnInit {
 
   users$: Observable<User[]>;
-
+  users: User[];
+  displayedColumns: string[];
   constructor(private http: HttpClient, private auth: AuthService, private router: Router, private sidenav: SidenavServiceService, private cities: CitiesService) { }
 
   ngOnInit(): void {
@@ -25,17 +26,26 @@ export class MainComponent implements OnInit {
 
     this.users$.subscribe(
       users => {
+        this.users = users;
         this.cities.cities = [];
         for (let user of users) {
           this.cities.cities.push(user.address.city);
         }
       }
     )
+
+    this.displayedColumns = ['id', 'name', 'username', 'email',
+    'street', 'suite', 'city', 'zipcode', 'lat', 'lng', 'phone',
+    'website', 'companyName', 'catchPhrase', 'bs', 'edit'];
   }
 
   edit(value) {
     this.auth.setLoggedIn(true);
     this.router.navigateByUrl('/editUser', { state: { userData: value } });
+  }
+
+  editData(user: User) {
+    this.edit(user);
   }
 
 }
