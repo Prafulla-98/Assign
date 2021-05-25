@@ -30,7 +30,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +58,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatAutocompleteModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatTabsModule,
     PostsModule,
     AlbumsModule,
     RouterModule.forRoot([

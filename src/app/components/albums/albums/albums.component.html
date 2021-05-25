@@ -1,15 +1,15 @@
 <div class="albums">
-    <h1>All Albums</h1>
-
-    <ul>
-        <li *ngFor="let album of albumsOnPage">
-            {{ album.title }} <button type="button" mat-raised-button color="warn" class="btn btn-primary" (click)="getLink(album.id)">More Info</button>
-        </li>
-    </ul>
-
-    <mat-paginator [length]="this.albums.length"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25]"
-        (page)="onPageChange($event)">
-    </mat-paginator>
-</div>
+        <h1>All Albums</h1>
+    
+        <ul>
+            <li *ngFor="let album of albumsOnPage">
+                {{ album.title }} <button type="button" mat-raised-button color="warn" class="btn btn-primary" (click)="getLink(album.id)">More Info</button>
+            </li>
+        </ul>
+    
+        <mat-paginator [length]="this.albums.length"
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25]"
+            (page)="onPageChange($event)">
+        </mat-paginator>
+    </div>

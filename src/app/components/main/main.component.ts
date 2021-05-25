@@ -38,7 +38,11 @@ export class MainComponent implements OnInit {
     'street', 'suite', 'city', 'zipcode', 'lat', 'lng', 'phone',
     'website', 'companyName', 'catchPhrase', 'bs', 'edit'];
   }
+  LogoutUser(){
+    localStorage.clear();
+    this.router.navigate([""]);
 
+  }
   edit(value) {
     this.auth.setLoggedIn(true);
     this.router.navigateByUrl('/editUser', { state: { userData: value } });
