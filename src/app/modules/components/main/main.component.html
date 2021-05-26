@@ -9,6 +9,11 @@
     <div class="button">
     <a mat-raised-button color="warn"  routerLink="../newUser" routerLinkActive="active"><mat-icon class="icon">person_add</mat-icon>Add New User</a>
     </div>
+    <div style="margin-left: 10px;">
+            <mat-form-field>
+              <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
     <table mat-table [dataSource]="users" class="mat-elevation-z8">
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -95,10 +100,8 @@
     </table>
 </div>
 <mat-paginator
-[length]="this.users.length"
-[pageSize]="5"
-[pageSizeOptions]="[5, 10, 25]"
-(page)="onPageChange($event)"
+
+ [pageSizeOptions]="[5, 10, 25, 100]"
 >
  </mat-paginator>
 </mat-tab>

@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from '../auth.guard';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AlbumsComponent,
@@ -19,6 +20,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatButtonModule,
     MatPaginatorModule,
     MatExpansionModule,
+    MatIconModule,
     RouterModule.forRoot([
       {
         path: 'albums',

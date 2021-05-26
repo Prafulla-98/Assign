@@ -32,6 +32,7 @@ import { UserDialogComponent } from './modules/components/user-dialog/user-dialo
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,

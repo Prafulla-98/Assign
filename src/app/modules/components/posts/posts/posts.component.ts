@@ -32,7 +32,11 @@ export class PostsComponent implements OnInit {
     const id = parseInt(value) - 1;
     this.router.navigate(['posts/'+value], {state: {data: this.posts[id]}});
   }
+  LogoutUser(){
+    localStorage.clear();
+    this.router.navigate([""]);
 
+  }
   onPageChange(event: PageEvent) {
     const startIndex = event.pageIndex + event.pageSize;
     let endIndex = startIndex + event.pageSize;
