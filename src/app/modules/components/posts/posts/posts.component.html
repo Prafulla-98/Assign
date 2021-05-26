@@ -16,7 +16,8 @@
     </ul>
    </mat-panel-description>
      </mat-expansion-panel>
-      <mat-paginator [length]="this.posts.length"
+      <mat-paginator class="page"
+      [length]="this.posts.length"
       [pageSize]="5"
       [pageSizeOptions]="[5, 10, 25]"
       (page)="onPageChange($event)">

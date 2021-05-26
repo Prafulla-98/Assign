@@ -7,11 +7,15 @@ import { AuthService } from '../../../modules/services/auth/auth.service';
 import { SidenavServiceService } from 'src/app/modules/services/sidenav/sidenav-service.service';
 import { CitiesService } from 'src/app/modules/services/cities/cities.service';
 import { PageEvent } from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule } from '@angular/material/paginator';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
+
+
 
 export class MainComponent implements OnInit {
 
@@ -44,6 +48,7 @@ export class MainComponent implements OnInit {
     this.router.navigate([""]);
 
   }
+
   edit(value) {
     this.auth.setLoggedIn(true);
     this.router.navigateByUrl('/editUser', { state: { userData: value } });
@@ -61,5 +66,5 @@ export class MainComponent implements OnInit {
     }
     this.usersOnPage = this.users.slice(startIndex, endIndex);
   }
-
+  
 }

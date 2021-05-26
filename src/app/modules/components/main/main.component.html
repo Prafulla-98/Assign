@@ -1,9 +1,13 @@
+<div class="center">
+        <button  mat-raised-button color="warn"(click)="LogoutUser()"><mat-icon class="icon">power_settings_new</mat-icon>Logout</button> 
+          </div>
+          
 <mat-tab-group>
         <mat-tab label="Users">
 <div>
     <h1>All Users</h1>
     <div class="button">
-    <a mat-raised-button color="warn"  routerLink="../newUser" routerLinkActive="active">Add New User</a>
+    <a mat-raised-button color="warn"  routerLink="../newUser" routerLinkActive="active"><mat-icon class="icon">person_add</mat-icon>Add New User</a>
     </div>
     <table mat-table [dataSource]="users" class="mat-elevation-z8">
         <ng-container matColumnDef="id">
@@ -90,18 +94,19 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
-<mat-paginator [length]="this.users.length"
+<mat-paginator
+[length]="this.users.length"
 [pageSize]="5"
 [pageSizeOptions]="[5, 10, 25]"
-(page)="onPageChange($event)">
+(page)="onPageChange($event)"
+>
  </mat-paginator>
 </mat-tab>
-<mat-tab label="Logout"> 
-  <div class="container">
-    <div class="center">
-  <button  mat-raised-button color="warn"(click)="LogoutUser()">Logout</button> 
-    </div>
-  </div>
+<mat-tab label="Posts">
+    <a mat-button routerLink="../posts" routerLinkActive="active"><mat-icon>library_books</mat-icon>Posts</a>
+</mat-tab>
+<mat-tab label="Albums">
+    <a mat-button routerLink="../albums" routerLinkActive="active"><mat-icon class="icon">collections</mat-icon>Albums</a>
 </mat-tab>
 </mat-tab-group>
 

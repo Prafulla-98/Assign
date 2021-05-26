@@ -31,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserDialogComponent } from './modules/components/user-dialog/user-dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTabsModule,
     PostsModule,
     AlbumsModule,
+    MatIconModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -99,6 +101,7 @@ import {MatTabsModule} from '@angular/material/tabs';
   exports: [
     FormsModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
   ],
 })
 export class AppModule { }
