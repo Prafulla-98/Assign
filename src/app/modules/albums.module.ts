@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AlbumsComponent } from '../components/albums/albums/albums.component';
-import { AlbumComponent } from '../components/albums/photo/album.component';
-import { AlbumResolver } from '../components/albums/resolver/album.resolver';
-import { AlbumService } from '../components/albums/service/album.service';
+import { AlbumsComponent } from '../modules/components/albums/albums/albums.component';
+import { AlbumComponent } from '../modules/components/albums/photo/album.component';
+import { AlbumResolver } from '../modules/components/albums/resolver/album.resolver';
+import { AlbumService } from '../modules/services/album/album.service';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from '../auth.guard';
 import { MatPaginatorModule } from '@angular/material/paginator';
