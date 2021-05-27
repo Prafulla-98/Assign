@@ -13,14 +13,12 @@ li {
 
 .center {
     text-align: right;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 .image {
-    position:fixed;
+    
     width:100%;
     height:100%;
-    top:0px;
-    left:0px;
     z-index:1000;
     background-image: url(../../../../../assets/images/Valley-Taurus-Mountains-Turkey.jpg) !important;
 }
