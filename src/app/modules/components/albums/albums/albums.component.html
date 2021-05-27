@@ -8,13 +8,17 @@
                    <mat-expansion-panel-header>
                <mat-panel-title>All Albums</mat-panel-title>
            </mat-expansion-panel-header>
-               <mat-panel-description>
-
-    <ul>
-        <li *ngFor="let album of albumsOnPage">
-            {{ album.title }} <button type="button" mat-raised-button color="warn" class="btn btn-primary" (click)="getLink(album.id)">More Info</button>
-        </li>
-    </ul>
+           <mat-panel-description>
+           <div > 
+            <mat-card class="column" class="typography" class="col-3 text-center" *ngFor="let album of albumsOnPage"> 
+                <mat-card-content >
+                {{ album.title }}    
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="warn" (click)="getLink(album.id)">More Info</button>
+                </mat-card-actions>
+            </mat-card>
+            </div> 
 </mat-panel-description>
 </mat-expansion-panel>
     <mat-paginator class="page"

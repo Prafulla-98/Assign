@@ -16,7 +16,8 @@ export class AlbumsComponent implements OnInit {
   albums$: Observable<Album[]>;
   albums: Album[];
   albumsOnPage: Album[];
-
+  totalLength: number;
+  page: number = 1;
   constructor(private http: HttpClient, private router: Router, private sidenav: SidenavServiceService) { }
 
   ngOnInit(): void {

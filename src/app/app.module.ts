@@ -33,6 +33,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TodoModule } from './modules/todo.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AlbumsModule,
     MatIconModule,
     NgbModule,
+    TodoModule,
     RouterModule.forRoot([
       {
         path: '',

@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AlbumsComponent,
@@ -23,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
     NgbModule,
     MatExpansionModule,
     MatIconModule,
+    MatCardModule,
     RouterModule.forRoot([
       {
         path: 'albums',

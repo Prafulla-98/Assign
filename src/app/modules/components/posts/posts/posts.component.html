@@ -10,11 +10,16 @@
     <mat-panel-title>All Posts</mat-panel-title>
 </mat-expansion-panel-header>
     <mat-panel-description>
-    <ul>
-        <li *ngFor="let post of postsOnPage">
-            {{ post.title }} <button mat-raised-button color="warn" type="button" class="btn btn-primary" (click)="getLink(post.id)">More Info</button>
-        </li>
-    </ul>
+        <mat-card class="typography" *ngFor="let post of postsOnPage"> 
+        
+        <mat-card-content >
+            {{ post.title }}    
+        </mat-card-content>
+        <mat-card-actions>
+            <button  mat-raised-button color="warn" (click)="getLink(post.id)">More Info</button>
+        </mat-card-actions>
+    
+    </mat-card>
    </mat-panel-description>
      </mat-expansion-panel>
       <mat-paginator class="page"
