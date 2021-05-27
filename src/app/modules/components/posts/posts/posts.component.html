@@ -1,12 +1,11 @@
-
+<div class="image">
 <br>
 <div class="center">
         <button  mat-raised-button color="warn"(click)="LogoutUser()"><mat-icon class="icon">power_settings_new</mat-icon>Logout</button> 
           </div>
 <div class="posts">
     <mat-accordion>
- <mat-expansion-panel (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false">
+ <mat-expansion-panel >
         <mat-expansion-panel-header>
     <mat-panel-title>All Posts</mat-panel-title>
 </mat-expansion-panel-header>
@@ -26,5 +25,4 @@
        </mat-paginator>
     </mat-accordion>
 </div>
-
-  
+</div>

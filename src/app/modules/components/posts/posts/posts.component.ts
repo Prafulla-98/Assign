@@ -12,7 +12,7 @@ import { Post } from '../model/Post';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  panelOpenState = false;
+
   posts$: Observable<Post[]>;
   posts: Post[];
   postsOnPage: Post[];

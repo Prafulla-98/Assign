@@ -8,6 +8,7 @@ import { AlbumService } from '../modules/services/album/album.service';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from '../auth.guard';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 @NgModule({
@@ -19,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
     CommonModule,
     MatButtonModule,
     MatPaginatorModule,
+    NgbModule,
     MatExpansionModule,
     MatIconModule,
     RouterModule.forRoot([

@@ -1,26 +1,28 @@
+<div class="image">
 <div class="center">
-        <button  mat-raised-button color="warn"(click)="LogoutUser()"><mat-icon class="icon">power_settings_new</mat-icon>Logout</button> 
-          </div>
+    <button  mat-raised-button color="warn"(click)="LogoutUser()"><mat-icon class="icon">power_settings_new</mat-icon>Logout</button> 
+      </div>
 <div class="albums">
-        <mat-accordion>
-                <mat-expansion-panel >
-                       <mat-expansion-panel-header>
-                   <mat-panel-title>All Albums</mat-panel-title>
-               </mat-expansion-panel-header>
-                   <mat-panel-description>
-    
-        <ul>
-            <li *ngFor="let album of albumsOnPage">
-                {{ album.title }} <button type="button" mat-raised-button color="warn" class="btn btn-primary" (click)="getLink(album.id)">More Info</button>
-            </li>
-        </ul>
-    </mat-panel-description>
+    <mat-accordion>
+            <mat-expansion-panel >
+                   <mat-expansion-panel-header>
+               <mat-panel-title>All Albums</mat-panel-title>
+           </mat-expansion-panel-header>
+               <mat-panel-description>
+
+    <ul>
+        <li *ngFor="let album of albumsOnPage">
+            {{ album.title }} <button type="button" mat-raised-button color="warn" class="btn btn-primary" (click)="getLink(album.id)">More Info</button>
+        </li>
+    </ul>
+</mat-panel-description>
 </mat-expansion-panel>
-        <mat-paginator class="page"
-        [length]="this.albums.length"
-            [pageSize]="5"
-            [pageSizeOptions]="[5, 10, 25]"
-            (page)="onPageChange($event)">
-        </mat-paginator>
-    </mat-accordion>
-    </div>
+    <mat-paginator class="page"
+    [length]="this.albums.length"
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25]"
+        (page)="onPageChange($event)">
+    </mat-paginator>
+</mat-accordion>
+</div>
+</div>

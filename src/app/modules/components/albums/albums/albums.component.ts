@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SidenavServiceService } from 'src/app/modules/services/sidenav/sidenav-service.service';
 import { Album } from '../model/Album';
-import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',

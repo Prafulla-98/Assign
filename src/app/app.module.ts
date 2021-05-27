@@ -32,7 +32,7 @@ import { UserDialogComponent } from './modules/components/user-dialog/user-dialo
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +64,7 @@ import {MatIconModule} from '@angular/material/icon';
     PostsModule,
     AlbumsModule,
     MatIconModule,
+    NgbModule,
     RouterModule.forRoot([
       {
         path: '',
