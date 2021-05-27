@@ -25,6 +25,9 @@ export class TodoComponent implements OnInit {
   ngOnInit(): void {
     this.sidenav.open();
     this.todo$ = this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todo');
+    this.todo$.subscribe(t => {
+      this.todo = t as Todo[];
+    });
     this.dataSource = new MatTableDataSource<Todo>(this.todo);
     this.getAllTodo();
   }
