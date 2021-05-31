@@ -10,7 +10,7 @@
            </mat-expansion-panel-header>
            <mat-panel-description>
            <div class="card" *ngFor="let album of albumsOnPage"> 
-          
+          <div class="col-sm">
             <div class="card-body">
                 <h3 class="card-title">Title: {{album.title}}</h3>
                
@@ -19,6 +19,7 @@
                 <mat-card-actions >
                     <button mat-raised-button color="warn" (click)="getLink(album.id)">More Info</button>
                 </mat-card-actions>
+            </div>
             </div>
             </div> 
 </mat-panel-description>
