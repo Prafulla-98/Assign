@@ -9,7 +9,7 @@ import { MainComponent } from './modules/components/main/main.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './modules/services/auth/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GeocolorDirective } from './modules/directives/geocolor/geocolor.directive';
 import { UserComponent } from './modules/components/user/user.component';
 import { EditUserComponent } from './modules/components/edit-user/edit-user.component';
@@ -34,6 +34,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodoModule } from './modules/todo.module';
+import { IntercepttorsInterceptor } from './modules/intercepttors.interceptor';
+import { ChartComponent } from './modules/components/chart/chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,7 @@ import { TodoModule } from './modules/todo.module';
     NavbarComponent,
     NewUserComponent,
     UserDialogComponent,
+    ChartComponent,
   ],
   entryComponents: [UserDialogComponent],
   imports: [
@@ -100,7 +103,12 @@ import { TodoModule } from './modules/todo.module';
     ]),
     BrowserAnimationsModule,
   ],
-  providers: [AuthGuard, AuthService, SidenavServiceService, CitiesService],
+  providers: [AuthGuard, AuthService, SidenavServiceService, CitiesService,
+    { provide: HTTP_INTERCEPTORS, 
+      useClass: IntercepttorsInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent],
   exports: [
     FormsModule,
