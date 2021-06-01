@@ -1,0 +1,35 @@
+<div class="image">
+<br>
+<div class="center">
+        <button  mat-raised-button color="warn"(click)="LogoutUser()"><mat-icon class="icon">power_settings_new</mat-icon>Logout</button> 
+          </div>
+<div class="posts">
+    <mat-accordion>
+ <mat-expansion-panel >
+        <mat-expansion-panel-header>
+    <mat-panel-title>All Posts</mat-panel-title>
+</mat-expansion-panel-header>
+    <mat-panel-description>
+            <div class="card" *ngFor="let post of postsOnPage"> 
+          
+                    <div class="card-body">
+                        <h3 class="card-title">Title:{{ post.title }} </h3>
+                       
+                      </div>
+                      <div class="button">
+                        <mat-card-actions >
+                            <button mat-raised-button color="warn" (click)="getLink(post.id)">More Info</button>
+                        </mat-card-actions>
+                    </div>
+                    </div> 
+   </mat-panel-description>
+     </mat-expansion-panel>
+      <mat-paginator class="page"
+      [length]="this.posts.length"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25]"
+      (page)="onPageChange($event)">
+       </mat-paginator>
+    </mat-accordion>
+</div>
+</div>

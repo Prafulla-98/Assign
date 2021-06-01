@@ -1,0 +1,16 @@
+<div class="photos">
+    <h1>Photos for this Album</h1>
+
+    <div class="gallery">
+        <ngb-carousel *ngIf="photos">
+            <ng-template ngbSlide *ngFor="let photo of photos">
+              <div class="picsum-img-wrapper">
+                <img [src]="photo.url">
+              </div>
+              <div class="carousel-caption">
+                <h3>{{photo.title}}</h3>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+    </div>
+</div>

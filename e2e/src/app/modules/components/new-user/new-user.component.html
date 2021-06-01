@@ -1,0 +1,87 @@
+<br>
+<form class="form-horizontal" [formGroup]="userForm">
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label class="control-label col-sm-2">Name: </mat-label>
+            <div class="col-sm-4">
+                <input matInput type="text" class="form-control" id="name" formControlName="name">
+            </div>
+        </mat-form-field>
+        <small *ngIf="!userForm.controls.name.valid" class="text-danger">
+            Name is required (minimum 5 characters).
+        </small>
+    </div>
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label class="control-label col-sm-2">Phone: </mat-label>
+            <div class="col-sm-4">
+                <input matInput type="text" class="form-control" id="phone" formControlName="phone"
+                pattern="[- +()0-9]+">
+            </div>
+        </mat-form-field>
+    </div>
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label class="control-label col-sm-2">Email: </mat-label>
+            <div class="col-sm-4">
+                <input matInput type="text" class="form-control" id="email" formControlName="email">
+            </div>
+        </mat-form-field>
+    </div>
+    <div formArrayName="addresses">
+        <div *ngFor="let address of userForm.get('addresses')['controls']; let i=index">
+            <div>
+                <br>
+                <span>Address {{i + 1}}</span>
+            </div>
+
+            <div [formGroupName]="i">
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-label class="control-label col-sm-2">Door No.</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="doorNo">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-label class="control-label col-sm-2">Street</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="street">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-label class="control-label col-sm-2">Area</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="area">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-label class="control-label col-sm-2">City</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="city" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let city of citiesArr" [value]="city">
+                                {{city}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-label class="control-label col-sm-2">Pin</mat-label>
+                        <input matInput type="text" class="form-control" formControlName="pin" pattern="[- 0-9]+">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button (click)="addAddress()" class="submit-btn btn btn-primary">Add Address</button>
+    </div>
+    <br>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button (click)="saveUser()" class="submit-btn btn btn-primary">Add User</button>
+        </div>
+    </div>
+</form>

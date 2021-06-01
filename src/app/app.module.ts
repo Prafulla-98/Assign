@@ -36,6 +36,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodoModule } from './modules/todo.module';
 import { IntercepttorsInterceptor } from './modules/intercepttors.interceptor';
 import { ChartComponent } from './modules/components/chart/chart.component';
+import { MessageComponent } from './modules/components/message/message.component';
+import { NotificationComponent } from './modules/components/notification/notification.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +52,8 @@ import { ChartComponent } from './modules/components/chart/chart.component';
     NewUserComponent,
     UserDialogComponent,
     ChartComponent,
+    MessageComponent,
+    NotificationComponent,
   ],
   entryComponents: [UserDialogComponent],
   imports: [
@@ -70,6 +76,8 @@ import { ChartComponent } from './modules/components/chart/chart.component';
     MatIconModule,
     NgbModule,
     TodoModule,
+    MatCardModule,
+    MatMenuModule,
     RouterModule.forRoot([
       {
         path: '',

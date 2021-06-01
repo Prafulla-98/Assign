@@ -1,8 +1,8 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode="side">
-        <span>Prafulla</span>
-
+        <div class="spacer"></div>
+        <a mat-button routerLinkActive="active"><mat-icon class="icon">notifications</mat-icon>Notifications</a>
         <div class="spacer"></div>
         <a mat-button routerLink="../main" routerLinkActive="active"><mat-icon class="icon">people</mat-icon>All Users</a>
         <div class="spacer"></div>
@@ -10,6 +10,7 @@
         <div class="spacer"></div>
         <a mat-button routerLink="../albums" routerLinkActive="active"><mat-icon class="icon">collections</mat-icon>Albums</a>
          <div class="spacer"></div>
+        
     </mat-sidenav>
     <mat-sidenav-content class="main-content">
             <button mat-button style="float: left;" (click)="sidenav.toggle()">
@@ -18,5 +19,3 @@
         <router-outlet></router-outlet> 
     </mat-sidenav-content>
 </mat-sidenav-container>
-
-<script src="node_modules/chart.js/src/chart.js"></script>

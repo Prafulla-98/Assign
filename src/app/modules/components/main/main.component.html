@@ -6,8 +6,9 @@
     <mat-tab label="Users"><div>
     <h1>All Users</h1>
     <div class="button">
-        <a mat-raised-button color="warn"  routerLink="../newUser" routerLinkActive="active"><mat-icon class="icon">person_add</mat-icon>Add New User</a>
-        </div>
+     <a mat-raised-button color="warn" routerLinkActive="active"><mat-icon class="icon">add</mat-icon>Add Message</a>
+    <a mat-raised-button color="warn"  routerLink="../newUser" routerLinkActive="active" style="margin-left: '5px'"><mat-icon class="icon">person_add</mat-icon>Add New User</a>
+    </div>
     <mat-form-field>
         <input (keyup)="applyFilter()" [(ngModel)]="filterValue" matInput placeholder="Filter">
     </mat-form-field>
@@ -113,5 +114,11 @@
   </mat-tab>
   <mat-tab label="Chart">  
     <app-chart></app-chart>
+ </mat-tab>
+ <mat-tab label="Message">  
+    <app-message></app-message>
+ </mat-tab>
+ <mat-tab label="notification">  
+    <app-notification></app-notification>
  </mat-tab>
 </mat-tab-group>
