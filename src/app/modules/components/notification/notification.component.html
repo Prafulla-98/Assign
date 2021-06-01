@@ -2,7 +2,7 @@
 <mat-menu #notifications="matMenu">
     <div class="not">
         {{ message }}
-        <button><mat-icon>delete</mat-icon></button>
+        <button (click)="deleteMessage()"><mat-icon>delete</mat-icon></button>
     </div>
 </mat-menu>
 

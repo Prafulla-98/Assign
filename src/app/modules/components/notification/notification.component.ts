@@ -16,5 +16,7 @@ message:string;
       
     }) 
   }
-
+  deleteMessage(): void{
+    this.messageService.deleteMessage();
+  }
 }

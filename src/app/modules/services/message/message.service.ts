@@ -14,4 +14,8 @@ private subject = new Subject<string>();
   recieveMessage(): Observable<string> {
     return this.subject.asObservable();
   }
+
+  deleteMessage() {
+    this.subject.next();
+}
 }
