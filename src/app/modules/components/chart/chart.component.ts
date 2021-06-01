@@ -1,7 +1,7 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 import {Chart} from 'node_modules/chart.js'; 
 import { AfterViewInit, ElementRef } from '@angular/core';
-import { LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, BarController, BarElement } from 'chart.js';
+import { PointElement,PieController, Title,ArcElement} from 'chart.js';
 
 @Component({
   selector: 'app-chart',
@@ -16,42 +16,30 @@ export class ChartComponent implements AfterViewInit {
   
   
    ngAfterViewInit() {
-      Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, BarController, BarElement);
+      Chart.register(PointElement, PieController,ArcElement, Title);
 
     let html = this.elementRef.nativeElement.querySelector(`#myChart`);
       var myChart = new Chart(html, {
-        type: 'bar',
+        type: 'pie',
         data: {
-          labels: ['Red', 'Blue', 'black', 'Green', 'Purple', 'violet'],
+          labels: [
+            'Red',
+            'Blue',
+            'purple',
+            'orange',
+          ],
           datasets: [{
-            label: '# of Votes',
-            data: [30, 20, 10, 12, 25, 8],
+            label: 'My First Dataset',
+            data: [150,50, 150, 50],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(0, 0, 0, 0.5)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(142, 68, 173, 0.5)'
-            ],
-            borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
-              'rgba(0, 0, 0, 1)',
-              'rgba(75, 192, 192, 1)',
               'rgba(153, 102, 255, 1)',
-              'rgba(142, 68, 173, 1)'
+               'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            hoverOffset: 4
           }]
         },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
       });
     }
   
