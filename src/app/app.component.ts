@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'prafulla-app';
   login: boolean = true;
   @ViewChild('sidenav') public sidenav: MatSidenav;
-
+  display = false;
   constructor(private sidenavService: SidenavServiceService, private router: Router,private loggedin: AuthService) {
 
   }
@@ -21,5 +21,11 @@ export class AppComponent {
   ngAfterViewInit(): void {
     this.sidenavService.setSidenav(this.sidenav);
   }
+  mouseEnter(): void {
+    this.display = true;
+  }
 
+  mouseLeave(): void {
+    this.display = false;
+  }
 }

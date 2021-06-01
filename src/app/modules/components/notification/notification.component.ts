@@ -7,16 +7,14 @@ import {MessageService} from 'src/app/modules/services/message/message.service';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
-message:string;
+  messages: string[];
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.messageService.recieveMessage().subscribe((d) => {
-      this.message = d;
-      
-    }) 
+    this.messages = this.messageService.recieveMessage();
   }
-  deleteMessage(): void{
-    this.messageService.deleteMessage();
+
+  deleteMessage(index): void{
+    this.messageService.deleteMessage(index);
   }
 }

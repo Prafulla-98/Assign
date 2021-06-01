@@ -99,6 +99,11 @@ import {MatMenuModule} from '@angular/material/menu';
         canActivate: [AuthGuard],
       },
       {
+        path: 'message',
+        component: MessageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'posts',
         loadChildren: () => import('./modules/posts.module').then(m => m.PostsModule),
         canActivate: [AuthGuard],

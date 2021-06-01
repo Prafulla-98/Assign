@@ -1,8 +1,13 @@
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode="side">
-        <div class="spacer"></div>
-        <a mat-button routerLinkActive="active"><mat-icon class="icon">notifications</mat-icon>Notifications</a>
+            <div class="spacer"></div>
+            <div id="notifications" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+                <a mat-button routerLinkActive="active"><mat-icon class="icon">notifications</mat-icon>Notifications</a>
+                <div id="comp-render" *ngIf="display">
+                    <app-notification></app-notification>
+                </div>
+            </div>
         <div class="spacer"></div>
         <a mat-button routerLink="../main" routerLinkActive="active"><mat-icon class="icon">people</mat-icon>All Users</a>
         <div class="spacer"></div>

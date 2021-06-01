@@ -5,17 +5,19 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-private subject = new Subject<string>();
-  constructor() { }
+  private messages: string[];
+  constructor() {
+    this.messages = [];
+   }
 
-  sendMessage(message: string){
-    this.subject.next(message);
+  sendMessage(message: string) {
+    this.messages.push(message);
   }
-  recieveMessage(): Observable<string> {
-    return this.subject.asObservable();
+  recieveMessage(): string[] {
+    return this.messages;
   }
 
-  deleteMessage() {
-    this.subject.next();
-}
+  deleteMessage(index) {
+    this.messages.splice(index, 1);
+  }
 }

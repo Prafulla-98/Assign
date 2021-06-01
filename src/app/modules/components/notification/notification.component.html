@@ -1,9 +1,7 @@
-<button mat-button [matMenuTriggerFor]="notifications"><mat-icon class="icon">notifications</mat-icon>Notifications</button>
-<mat-menu #notifications="matMenu">
-    <div class="not">
-        {{ message }}
-        <button (click)="deleteMessage()"><mat-icon>delete</mat-icon></button>
+<div class="card">
+        <div class="not card-body" *ngFor="let message of messages; let i = index"  [attr.data-index]="i">
+            <p class="card-text">{{ message }} &nbsp;&nbsp;<button (click)="deleteMessage(i)"><mat-icon>delete</mat-icon></button></p>
+        </div>
     </div>
-</mat-menu>
 
 

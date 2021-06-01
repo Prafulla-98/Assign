@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder} from '@angular/forms';
 import {MessageService} from 'src/app/modules/services/message/message.service';
 @Component({
   selector: 'app-message',
@@ -9,12 +9,17 @@ import {MessageService} from 'src/app/modules/services/message/message.service';
 })
 export class MessageComponent implements OnInit {
 
-  constructor(private router: Router, private messageService: MessageService) { }
+  messageForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.messageForm = this.fb.group({
+      message: '',
+    });
   }
  
-  sendMessage(message) {
-    this.messageService.sendMessage(message);
+  sendMessage() {
+    this.messageService.sendMessage(this.messageForm.get('message').value);
   }
 }
