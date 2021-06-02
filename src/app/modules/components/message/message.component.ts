@@ -9,9 +9,8 @@ import {MessageService} from 'src/app/modules/services/message/message.service';
 })
 export class MessageComponent  {
 
-  messageForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService) { }
+  constructor( private router: Router, private messageService: MessageService) { }
 
     sendMessage(message){
       this.messageService.sendMessage(message);

@@ -1,9 +1,7 @@
-<button  mat-button style="float: right; margin-right: 5px;" class="btn btn-primary" [matMenuTriggerFor]="belowMenu"><mat-icon>notifications</mat-icon></button> 
-    <mat-menu #belowMenu="matMenu" yPosition="below">
-      <p *ngFor="let message of messages">{{message.text}}</p>
-      
-      <button (click)="clearMessage()" *ngIf="messages"><mat-icon>delete</mat-icon></button>
- </mat-menu>
-
+<div class="card">
+  <div class="not card-body" *ngFor="let message of messages">
+      <p class="card-text">{{ message.text }} &nbsp;&nbsp;<button (click)="clearMessage()"><mat-icon>delete</mat-icon></button></p>
+  </div>
+</div>
 
  
