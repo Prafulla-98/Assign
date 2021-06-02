@@ -1,20 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import {MessageService} from 'src/app/modules/services/message/message.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
-  messages: string[];
-  constructor(private messageService: MessageService) { }
+  messages: any[] = [];
+  subscription: Subscription;
 
-  ngOnInit(): void {
-    this.messages = this.messageService.recieveMessage();
+  constructor(private messageService: MessageService) { }
+  ngOnInit(): void{
+    this.subscription=this.messageService.receiveMessage().subscribe((message)=>{
+      if(message){
+        this.messages.push(message);
+      }
+      else{
+        this.messages=[];
+      }
+    });  
   }
 
-  deleteMessage(index): void{
-    this.messageService.deleteMessage(index);
+  ngOnDestroy() {
+      this.subscription.unsubscribe();
+  }
+  clearMessage(): void{
+    this.messageService.clearMessage();
   }
 }
+  

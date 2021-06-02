@@ -7,19 +7,14 @@ import {MessageService} from 'src/app/modules/services/message/message.service';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent  {
 
   messageForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService) { }
 
-  ngOnInit(): void {
-    this.messageForm = this.fb.group({
-      message: '',
-    });
-  }
- 
-  sendMessage() {
-    this.messageService.sendMessage(this.messageForm.get('message').value);
-  }
+    sendMessage(message){
+      this.messageService.sendMessage(message);
+      return false;
+    }
 }
