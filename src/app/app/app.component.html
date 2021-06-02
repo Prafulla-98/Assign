@@ -1,0 +1,26 @@
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side">
+           
+        <div class="spacer"></div>
+        <a mat-button routerLink="../main" routerLinkActive="active"><mat-icon class="icon">people</mat-icon>All Users</a>
+        <div class="spacer"></div>
+        <a mat-button routerLink="../posts" routerLinkActive="active"><mat-icon>library_books</mat-icon>Posts</a>
+        <div class="spacer"></div>
+        <a mat-button routerLink="../albums" routerLinkActive="active"><mat-icon class="icon">collections</mat-icon>Albums</a>
+        <a mat-button routerLink="../notifications" routerLinkActive="active">notification</a>
+         <div class="spacer"></div>
+         <div id="notifications" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+            <a mat-button routerLinkActive="active"><mat-icon class="icon">notifications</mat-icon>Notifications</a>
+            <div id="comp-render" *ngIf="display">
+                <app-notification></app-notification>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-content">
+            <button mat-button style="float: left;" (click)="sidenav.toggle()">
+                    <mat-icon>list</mat-icon>
+                  </button>
+        <router-outlet></router-outlet> 
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,29 @@
+table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+mat-paginator {
+    width: fit-content;
+    background: transparent;
+}
+.button {
+    text-align: right;
+    margin-bottom: 5px;
+    }
+    
+    .icon {
+        margin-right:5px;
+    }
+    .center {
+      text-align: right;
+    }

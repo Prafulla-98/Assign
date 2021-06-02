@@ -1,0 +1,35 @@
+<div class="image">
+<div class="center">
+    <button  mat-raised-button color="warn"(click)="LogoutUser()"><mat-icon class="icon">power_settings_new</mat-icon>Logout</button> 
+ </div>
+<div class="albums">
+    <mat-accordion>
+            <mat-expansion-panel >
+                   <mat-expansion-panel-header>
+               <mat-panel-title>All Albums</mat-panel-title>
+           </mat-expansion-panel-header>
+           <mat-panel-description>
+           <div class="card" *ngFor="let album of albumsOnPage"> 
+          <div class="col-sm">
+            <div class="card-body">
+                <h3 class="card-title">Title: {{album.title}}</h3>
+               
+              </div>
+              <div class="button">
+                <mat-card-actions >
+                    <button mat-raised-button color="warn" (click)="getLink(album.id)">More Info</button>
+                </mat-card-actions>
+            </div>
+            </div>
+            </div> 
+</mat-panel-description>
+</mat-expansion-panel>
+    <mat-paginator class="page"
+    [length]="this.albums.length"
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25]"
+        (page)="onPageChange($event)">
+    </mat-paginator>
+</mat-accordion>
+</div>
+</div>

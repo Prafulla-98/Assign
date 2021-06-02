@@ -1,6 +1,6 @@
 <div class="card">
   <div class="not card-body" *ngFor="let message of messages">
-      <p class="card-text">{{ message.text }} &nbsp;&nbsp;<button (click)="clearMessage()"><mat-icon>delete</mat-icon></button></p>
+      <p class="card-text">{{ message.text }} &nbsp;&nbsp;<button (click)="clearMessage()" *ngIf="messages"><mat-icon>delete</mat-icon></button></p>
   </div>
 </div>
 
