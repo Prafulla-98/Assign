@@ -1,7 +1,8 @@
+<p>Notification works!</p>
 <div class="card">
-  <div class="not card-body" *ngFor="let message of messages">
-      <p class="card-text">{{ message.text }} &nbsp;&nbsp;<button (click)="clearMessage()" *ngIf="messages"><mat-icon>delete</mat-icon></button></p>
+  <div class="not card-body" >
+      <p class="card-text" *ngFor="let message of messages">{{ message.text }} &nbsp;&nbsp;<button (click)="clearMessage()"><mat-icon>delete</mat-icon></button></p>
   </div>
 </div>
 
- 
+<!-- <p *ngFor="let message of messages">{{message.text}}</p> -->

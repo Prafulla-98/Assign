@@ -11,7 +11,7 @@ export class MessageService {
   constructor() { }
 
   sendMessage(message: string){
-    this.subject.next({text: message});
+    this.subject.next({text : message});
   }
 
   receiveMessage(): Observable<any>{

@@ -11,12 +11,13 @@ export class MessageComponent implements OnInit {
 
 
   constructor( private router: Router, private messageService: MessageService) { }
-  
-  ngOnInit() {
-   }
 
+  ngOnInit(){
+
+  }
     sendMessage(message){
       this.messageService.sendMessage(message);
-      console.log(message);
+      console.log(message,"send");
+      return false;
     }
 }

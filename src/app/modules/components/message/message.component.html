@@ -1,16 +1,18 @@
-<div class="message">
+<div class="message" z>
     <div class="container text-center">
       <mat-card>
         <h2>ADD MESSAGE</h2>
         <form>
             Message: 
             <mat-form-field class="form-field" appearance="outline">
-              <input matInput #m >
+              <input matInput #message >
             </mat-form-field>
           <div class="button">
-           <button mat-raised-button color="warn" (click)="sendMessage(m.value)">Add</button>
+           <button mat-raised-button color="warn" (click)="sendMessage(message.value)">Add</button>
           </div>
         </form>
      </mat-card>
     </div>
   </div>
+
+  

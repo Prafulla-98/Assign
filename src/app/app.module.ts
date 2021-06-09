@@ -113,6 +113,11 @@ import {MatMenuModule} from '@angular/material/menu';
         loadChildren: () => import('./modules/albums.module').then(m => m.AlbumsModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'notifications',
+        component: NotificationComponent,
+        canActivate: [AuthGuard],
+      },
     ]),
     BrowserAnimationsModule,
   ],
