@@ -33,3 +33,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('prafulla-app app is running!');
   });
 });
+
+describe('testcomponent',() => {
+  
+})

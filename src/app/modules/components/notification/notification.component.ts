@@ -14,7 +14,6 @@ export class NotificationComponent implements OnInit {
     
    }
   ngOnInit(){
-    console.log("hi text");
  
     console.log(this.subscription=this.messageService.receiveMessage().subscribe((message)=>{
       console.log(message, "message")
