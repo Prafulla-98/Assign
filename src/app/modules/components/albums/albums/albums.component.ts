@@ -14,7 +14,7 @@ import { Album } from '../model/Album';
 export class AlbumsComponent implements OnInit {
 
   albums$: Observable<Album[]>;
-  albums: Album[];
+  albums: Album[] = [];
   albumsOnPage: Album[];
   totalLength: number;
   page: number = 1;

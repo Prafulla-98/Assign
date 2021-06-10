@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SidenavServiceService } from 'src/app/modules/services/sidenav/sidenav-service.service';
+import { MockSidenavServiceService } from 'src/app/modules/mock-models/mock-sidenav-service';
 
 import { LoginComponent } from './login.component';
 
@@ -8,7 +12,9 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      imports: [ReactiveFormsModule, RouterTestingModule],
+      declarations: [ LoginComponent ],
+      providers: [{ provide: SidenavServiceService, useClass: MockSidenavServiceService}]
     })
     .compileComponents();
   });

@@ -21,10 +21,10 @@ export class EditUserComponent implements OnInit {
   citiesArr: string[];
 
   constructor(private fb:FormBuilder, private router: Router, private sidenav: SidenavServiceService, private cities: CitiesService, private dialog: MatDialog) {
-    const user = this.router.getCurrentNavigation().extras.state.userData;
-    const add=this.router.getCurrentNavigation().extras.state.addUser;
+    const user = this.router.getCurrentNavigation()?.extras.state.userData;
+    const add = this.router.getCurrentNavigation()?.extras.state.addUser;
     this.user = user;
-    this.addUser=add;
+    this.addUser = add;
    }
 
   ngOnInit(): void {

@@ -14,7 +14,7 @@ import { Post } from '../model/Post';
 export class PostsComponent implements OnInit {
 
   posts$: Observable<Post[]>;
-  posts: Post[];
+  posts: Post[] = [];
   postsOnPage: Post[];
 
   constructor(private http: HttpClient, private router: Router, private sidenav: SidenavServiceService) { }
